@@ -12,8 +12,8 @@ interface IsometricRoomProps {
 }
 
 export default function IsometricRoom({ setIntroVisible }: IsometricRoomProps) {
-  const room = useRef();
-  const cube = useRef();
+  const room = useRef<any>(null);
+  const cube = useRef<any>(null);
 
   const [animationTriggered, setAnimationTriggered] = useState(false);
   const [isLocked, toggle] = useBodyScrollLock();
@@ -28,7 +28,7 @@ export default function IsometricRoom({ setIntroVisible }: IsometricRoomProps) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  function onSplineMouseDown(e) {
+  function onSplineMouseDown(e: any) {
     if (e.target.name === "Cube") {
       console.log("cube has been clicked");
 
@@ -44,40 +44,42 @@ export default function IsometricRoom({ setIntroVisible }: IsometricRoomProps) {
       import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
         gsap.registerPlugin(ScrollTrigger);
 
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: "#first-section",
-              start: "top bottom",
-              end: "bottom center",
-              scrub: true,
-            },
-          })
-          .to(room.current.position, { x: 3300, y: 1000 }, 0)
-          .to(room.current.scale, { x: 1.5, y: 1.5, z: 1.5 }, 0);
+        if (room.current) {
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: "#first-section",
+                start: "top bottom",
+                end: "bottom center",
+                scrub: true,
+              },
+            })
+            .to(room.current.position, { x: 3300, y: 1000 }, 0)
+            .to(room.current.scale, { x: 1.5, y: 1.5, z: 1.5 }, 0);
 
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: "#second-section",
-              start: "top top",
-              end: "bottom top",
-              scrub: true,
-            },
-          })
-          .to(room.current.position, { x: -3300, y: -1000 }, 0)
-          .to(room.current.scale, { x: 3, y: 3, z: 3 }, 0);
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: "#third-section",
-              start: "top top",
-              end: "bottom top",
-              scrub: true,
-            },
-          })
-          .to(room.current.position, { x: 0, y: 0 }, 0)
-          .to(room.current.scale, { x: 1, y: 1, z: 1 }, 0);
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: "#second-section",
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+              },
+            })
+            .to(room.current.position, { x: -3300, y: -1000 }, 0)
+            .to(room.current.scale, { x: 3, y: 3, z: 3 }, 0);
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: "#third-section",
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+              },
+            })
+            .to(room.current.position, { x: 0, y: 0 }, 0)
+            .to(room.current.scale, { x: 1, y: 1, z: 1 }, 0);
+        }
       });
     }
   }, [isLocked, room.current]);

@@ -45,7 +45,7 @@ const AboutSection = ({ background }: AboutSectionProps) => {
       }}
     >
       <div className="text-lg font-bold leading-relaxed mt-12 text-[#333332]">
-        Hey, I'm Jerry!
+        Hey, I&apos;m Jerry!
       </div>
       <div className="leading-loose mt-6 text-base text-[#333332]">
         <div>

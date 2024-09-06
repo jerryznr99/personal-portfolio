@@ -47,11 +47,12 @@ const AnimatedText = ({
         aria-hidden
       >
         {text.split(" ").map((word) => (
-          <span className="inline-block">
+          <span className="inline-block" key={word}>
             {word.split("").map((char) => (
               <motion.span
                 className="inline-block"
                 variants={defaultAnimations}
+                key={`${word}-${char}`}
               >
                 {char}
               </motion.span>
