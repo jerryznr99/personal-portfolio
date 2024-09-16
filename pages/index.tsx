@@ -147,11 +147,13 @@ export default function Home() {
       {!isIntroVisible && <ExperienceSection background={"#FFFFFF"} />}
       <div id="third-section" className="section-margin"></div>
       {!isIntroVisible && <ProjectSection />}
-      <footer>
-        <div id="footer-info">
-          © 2024 Jerry Zhang. All rights reserved. Last updated: Sep 5, 2024.
-        </div>
-      </footer>
+      {!isIntroVisible && (
+        <footer>
+          <div id="footer-info">
+            © 2024 Jerry Zhang. All rights reserved. Last updated: Sep 5, 2024.
+          </div>
+        </footer>
+      )}
     </main>
   );
 }
