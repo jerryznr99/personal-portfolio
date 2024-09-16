@@ -20,6 +20,18 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    if (isLocked) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isLocked]);
+
+  useEffect(() => {
     if (!isIntroVisible) {
       const timer = setTimeout(() => {
         setShowIcons(true);
