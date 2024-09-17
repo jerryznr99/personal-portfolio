@@ -11,6 +11,10 @@
   }
 }
 
+body {
+  overflow: hidden;
+}
+
 :root {
   --color-text: #333332;
 }
