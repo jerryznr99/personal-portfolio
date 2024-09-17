@@ -27,7 +27,14 @@ const ProjectSection = () => {
           result="95% Accuracy"
         />
       </div>
-      <div className="flex flex-row w-full max-w-5xl mx-auto gap-[4px]"></div>
+      <div className="flex flex-row w-full max-w-5xl mx-auto gap-[4px]">
+        <ProjectCard
+          href="https://github.com/jerryznr99/sneaker-quant-price"
+          title="Shoe Price Predictor"
+          description="Linear regression with 5 indicators"
+          result="97.6% accuracy"
+        />
+      </div>
     </div>
   );
 };
