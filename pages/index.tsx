@@ -9,23 +9,9 @@ import ExperienceSection from "@/components/ExperienceSection";
 import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
-  const [isLocked, toggle] = useBodyScrollLock();
   const [isIntroVisible, setIntroVisible] = useState(true);
   const [isImageVisible, setImageVisible] = useState(false);
   const [showIcons, setShowIcons] = useState(false);
-
-  useEffect(() => {
-    toggle();
-    console.log(isLocked);
-  }, []);
-
-  // useEffect(() => {
-  //   if (isLocked) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "auto";
-  //   }
-  // }, [isLocked]);
 
   useEffect(() => {
     if (!isIntroVisible) {
