@@ -19,13 +19,13 @@ export default function Home() {
     console.log(isLocked);
   }, []);
 
-  useEffect(() => {
-    if (isLocked) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [isLocked]);
+  // useEffect(() => {
+  //   if (isLocked) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "auto";
+  //   }
+  // }, [isLocked]);
 
   useEffect(() => {
     if (!isIntroVisible) {
