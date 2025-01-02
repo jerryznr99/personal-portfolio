@@ -34,6 +34,12 @@ const ProjectSection = () => {
           description="Linear regression with 5 indicators"
           result="97.6% accuracy"
         />
+        <ProjectCard
+          href="https://lumen-bay.vercel.app/"
+          title="Lumen"
+          description="Copilot for Product Insights"
+          result="Best Demo"
+        />
       </div>
     </div>
   );
